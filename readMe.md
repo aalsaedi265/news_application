@@ -46,3 +46,11 @@ api key= 6939209d994449da9e9960174d61bf29
         will holds the api keys
         endpionts 
         and organize display
+
+
+
+    fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=6939209d994449da9e9960174d61bf29')
+    .then(r=> r.json())
+    .then(d => console.log(d))
+
+    Access-Control-Allow-Origin: *

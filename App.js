@@ -21,12 +21,20 @@ export default function App() {
     
     
     <NavigationContainer  > 
-      <Tab.Navigator tabBarOptions={{showLabel:false,
-                                     inactiveTintColor:'rgb(247,245,0)',
-                                     activeTintColor: 'rgb(0,208,255)',
-                                     activeBackgroundColor:' rgba(1,1,1,0.9)',
-                                     inactiveBackgroundColor:' rgba(1,1,1,0.9)'
-                                     }}>
+      <Tab.Navigator screenOptions={{
+  "tabBarActiveTintColor": "rgb(0,208,255)",
+  "tabBarInactiveTintColor": "rgb(247,245,0)",
+  "tabBarActiveBackgroundColor": " rgba(1,1,1,0.9)",
+  "tabBarInactiveBackgroundColor": " rgba(1,1,1,0.9)",
+  "tabBarShowLabel": false,
+  "tabBarStyle": [
+    {
+      "display": "flex"
+    },
+    null
+  ]
+}
+}>
 
         <Tab.Screen name="All" component={All}
               options={{headerShown:false,

@@ -1,9 +1,21 @@
-import React from 'react'
-import { View, Text, StyleSheet  } from 'react-native'
-import { Divider, NativeBaseProvider } from 'native-base';
-import services from '../services/services';
+import React, { useEffect, useState } from 'react'
+import { View, Text, StyleSheet } from 'react-native';
+import { NativeBaseProvider, FlatList, ScrollView, Divider, Image, Spinner } from 'native-base';
+import { services } from '../services/services';
+import axios from 'axios';
 
 export default function HomeScreen() {
+  const [newsData, setNewsData] = useState([])
+  useEffect(() => {
+      services('general')
+          .then(data => {
+            console.log(data)
+              setNewsData(data)
+          })
+          .catch(error => {
+              console.log("try again: ",error)
+          })
+  }, [])
   return (
     <NativeBaseProvider>
     <View >

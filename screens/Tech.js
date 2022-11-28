@@ -1,17 +1,57 @@
-import React from 'react'
-import { View, Text, StyleSheet  } from 'react-native'
-import { Divider, NativeBaseProvider } from 'native-base';
-
+import React, { useEffect, useState } from 'react'
+import { View, Text, StyleSheet } from 'react-native';
+import { NativeBaseProvider, FlatList, Box,ScrollView, Divider, Image, Spinner } from 'native-base';
+import { services } from '../services/services';
+import moment from 'moment';
 
 export default function Tech(){
+  const [newsData, setNewsData] = useState([])
+  useEffect(() => {
+      services('technology')
+          .then(data => {
+            
+              setNewsData(data)
+          })
+          .catch(error => {
+              console.log("try again: ",error)
+          })
+  }, [])
     return(
       <NativeBaseProvider>
-      <View >
+      
           <View style={styles.container}>
              <Text style={styles.text}>Technology</Text>
           </View>
   
-              <View>
+             
+          <ScrollView height={850}>
+          
+
+          <FlatList data={newsData} renderItem={({
+        item}) => (<Box 
+          _text={{ fontWeight: "bold",
+                  color: "rgb(0,208,255)"}} 
+                  px='5' py='2' rounded="md" my='0.4' bg= "rgba(1,1,1,0.9)">
+          <Image
+            height={200}
+            width={300}
+            resizeMode={'contain'}
+            borderRadius={100}
+            source={{
+              uri: item.urlToImage ? item.urlToImage : 'https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg',
+          }}
+            alt='article image'
+          />
+          {item.title}
+          <Text style={styles.publish}>{moment(item.publishedAt).format('LLL')}</Text>
+          
+          <Text style={styles.newsDescipt}>{item.description}</Text>
+         
+            </Box>
+            )}  />
+  
+  
+              {/* <View>
                 <View style={styles.flex}>
                     <Text style={styles.title}>Title</Text>
                     <Text style={styles.date}>Date</Text>
@@ -49,12 +89,13 @@ export default function Tech(){
                 <View style={styles.description}>
                     <Text style={styles.title} >Description</Text>
                 </View>
-              </View>
-      </View>
+              </View> */}
+              
+          </ScrollView>;
+      
       </NativeBaseProvider>
     )
   }
-  
   const styles = StyleSheet.create({
     
     container:{
@@ -84,6 +125,13 @@ export default function Tech(){
     },
     description:{
       padding:20,
+    },
+    newsDescipt:{
+      color:'#f7f500',
+      marginTop:10
+    },
+    publish:{
+      color: "white"
     }
   
   })

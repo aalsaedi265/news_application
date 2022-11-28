@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 // import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import All from './screens/All';
 import Business from './screens/Business';
 import Health from './screens/Health';
@@ -14,25 +15,29 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-
-    
     
     <NavigationContainer  > 
+
       <Tab.Navigator screenOptions={{
   "tabBarActiveTintColor": "rgb(0,208,255)",
   "tabBarInactiveTintColor": "rgb(247,245,0)",
   "tabBarActiveBackgroundColor": " rgba(1,1,1,0.9)",
   "tabBarInactiveBackgroundColor": " rgba(1,1,1,0.9)",
   "tabBarShowLabel": false,
+  
   "tabBarStyle": [
     {
       "display": "flex"
     },
     null
-  ]
+  ],
+  cardStyle: {
+    backgroundColor: 'pink'
+}
 }
 }>
 
@@ -68,8 +73,16 @@ export default function App() {
        </Tab.Navigator>
               
         <StatusBar style="auto" />
-          
+       
       </NavigationContainer>
-      
-  );
+     
+  )
 }
+
+
+const color=StyleSheet.create({
+  
+  back:{
+    backgroundColor: 'rgba(1,1,1,0.9))'
+  }
+  })

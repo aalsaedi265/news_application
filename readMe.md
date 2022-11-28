@@ -54,3 +54,13 @@ api key= 6939209d994449da9e9960174d61bf29
     .then(d => console.log(d))
 
     Access-Control-Allow-Origin: *
+
+
+    send to the app store by making an expo account and creating
+
+    expo build:android
+
+    fill credentails
+
+    apk for install on device => generate keystore and source app 
+    app-bundle to upload to app store

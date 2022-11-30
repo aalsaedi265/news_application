@@ -64,3 +64,9 @@ api key= 6939209d994449da9e9960174d61bf29
 
     apk for install on device => generate keystore and source app 
     app-bundle to upload to app store
+
+     npx expo start --tunnel
+    will allow you connect your phone and start the work
+
+
+    will need to deal with custom font on expo

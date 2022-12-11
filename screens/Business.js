@@ -23,7 +23,7 @@ export default function Setting() {
            <Text style={styles.text}>Business</Text>
         </View>
 
-        <ScrollView height={850}>
+      
 
         {newsData.length >1 ? (
 
@@ -48,7 +48,10 @@ export default function Setting() {
     <Text style={styles.newsDescipt}>{item.description}</Text>
    
       </Box>
-      )}  />
+      )}  
+      
+      showsVerticalScrollIndicator={false}
+      />
      
 
 
@@ -90,7 +93,7 @@ export default function Setting() {
 
 
 
-        </ScrollView>;
+      
       
     </NativeBaseProvider>
   )

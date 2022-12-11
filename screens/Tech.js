@@ -24,7 +24,7 @@ export default function Tech(){
           </View>
   
              
-          <ScrollView height={850}>
+       
  
           {newsData.length >1 ? (
 
@@ -49,7 +49,9 @@ export default function Tech(){
     <Text style={styles.newsDescipt}>{item.description}</Text>
    
       </Box>
-      )}  />
+      )} 
+      showsVerticalScrollIndicator={false}
+      />
      
 
 
@@ -91,7 +93,7 @@ export default function Tech(){
 
 
 
-        </ScrollView>;
+       
       
     </NativeBaseProvider>
   )

@@ -23,7 +23,6 @@ export default function Sport(){
              <Text style={styles.text}>Sports</Text>
           </View>
   
-          <ScrollView height={850}>
    
           {newsData.length >1 ? (
 
@@ -48,7 +47,9 @@ export default function Sport(){
     <Text style={styles.newsDescipt}>{item.description}</Text>
    
       </Box>
-      )}  />
+      )}  
+      showsVerticalScrollIndicator={false}
+      />
      
 
 
@@ -88,9 +89,6 @@ export default function Sport(){
      */}
 
 
-
-
-        </ScrollView>;
       
     </NativeBaseProvider>
   )

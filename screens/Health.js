@@ -24,7 +24,6 @@ export default function Health(){
              <Text style={styles.text}>Health</Text>
           </View>
   
-          <ScrollView height={850}>
       
           {newsData.length >1 ? (
 
@@ -49,7 +48,9 @@ export default function Health(){
     <Text style={styles.newsDescipt}>{item.description}</Text>
    
       </Box>
-      )}  />
+      )} 
+      showsVerticalScrollIndicator={false}
+      />
      
 
 
@@ -91,7 +92,7 @@ export default function Health(){
 
 
 
-        </ScrollView>;
+        
       
     </NativeBaseProvider>
   )

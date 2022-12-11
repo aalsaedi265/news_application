@@ -25,11 +25,13 @@ export default function HomeScreen() {
            <Text style={styles.text}>top  stories</Text>
         </View>
 
-        <ScrollView height={850}>
 
           {newsData.length >1 ? (
 
-<FlatList data={newsData} renderItem={({
+<FlatList 
+data={newsData} 
+
+renderItem={({
   item}) => (<Box 
     _text={{ fontWeight: "bold",
             color: "rgb(0,208,255)"}} 
@@ -43,6 +45,7 @@ export default function HomeScreen() {
         uri: item.urlToImage ? item.urlToImage : 'https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg',
     }}
       alt='article image'
+
     />
     {item.title}
     <Text style={styles.publish}>{moment(item.publishedAt).format('LLL')}</Text>
@@ -50,7 +53,9 @@ export default function HomeScreen() {
     <Text style={styles.newsDescipt}>{item.description}</Text>
    
       </Box>
-      )}  />
+      )} 
+      showsVerticalScrollIndicator={false}
+      />
      
 
 
@@ -63,36 +68,7 @@ export default function HomeScreen() {
          
           }
 
-{/* 
-        <FlatList data={newsData} renderItem={({
-      item}) => (<Box 
-        _text={{ fontWeight: "bold",
-                color: "rgb(0,208,255)"}} 
-                px='5' py='2' rounded="md" my='0.4' bg= "rgba(1,1,1,0.9)">
-        <Image
-          height={200}
-          width={300}
-          resizeMode={'contain'}
-          borderRadius={100}
-          source={{
-            uri: item.urlToImage ? item.urlToImage : 'https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg',
-        }}
-          alt='article image'
-        />
-        {item.title}
-        <Text style={styles.publish}>{moment(item.publishedAt).format('LLL')}</Text>
-        
-        <Text style={styles.newsDescipt}>{item.description}</Text>
-       
-          </Box>
-          )}  />
-         
-     */}
-
-
-
-
-        </ScrollView>;
+   
       
     </NativeBaseProvider>
   )
